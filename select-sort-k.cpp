@@ -68,9 +68,14 @@ int main(){
 	cin >> kNum;
 	
 	selection(dynamArray, count, kNum);
+	cout << "Output: ";
 	for(int i = 0; i < kNum; i++){
-	    cout << "number " << i << " is " << dynamArray[i] << endl;
+	    cout  << dynamArray[i];
+	    if(i < kNum - 1){
+	        cout << ", ";
+	    }
 	}
+	cout << endl;
 	
 	delete[] dynamArray; //delete dynamic array
     return 0;
