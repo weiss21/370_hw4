@@ -13,6 +13,28 @@
 #include <vector>
 using namespace std;
 
+void selection(int arr[], int size, int k)
+{
+   int i, j, min, index, temp;
+   for (i = 0;i < k;i++)
+   {
+       min = arr[i];
+       index = i;
+       for (j = i + 1;j < size;j++)
+       {
+           if (arr[j] < min)
+           {
+               min = arr[j];
+               index = j;
+           }
+       }
+       if( index != i){
+           temp = arr[index];
+           arr[index] = arr[i];
+           arr[i] = temp;
+       }
+   }
+}
 
 int main(){
     
@@ -20,7 +42,7 @@ int main(){
     string fileName;
     int *dynamArray;
     int count;
-    int num;
+    int num, kNum;
     
    cout << "Enter input file name: ";
    cin >> fileName;
@@ -42,7 +64,11 @@ int main(){
     
 	myFile.close();
 	
-	for(int i = 0; i < count; i++){
+	cout << "Enter the value k: ";
+	cin >> kNum;
+	
+	selection(dynamArray, count, kNum);
+	for(int i = 0; i < kNum; i++){
 	    cout << "number " << i << " is " << dynamArray[i] << endl;
 	}
 	
