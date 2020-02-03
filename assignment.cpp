@@ -1,3 +1,11 @@
+/*
+ * Title: assignment.cpp
+ * Abstract:  Reads the assignment costs of each person from a user and determine the best assignment
+ * Author: Wais Robleh
+ * ID: 1624
+ * Date: 02/03/2020
+ */
+
 #include <iostream>
 #include <climits>
 #include <cstdlib>
