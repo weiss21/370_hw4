@@ -14,9 +14,9 @@
 
 using namespace std;
 
-void insertInQueue(int queue[], int &length, int vertex)
+void check(int queue[], int &length, int vertex)
 {
-    //cout << "insert " << vertex << endl;
+
     for(int i = 0; i < length; i++)
     {
         if(queue[i] == vertex)
@@ -30,38 +30,38 @@ int main()
 
 {
     string fileName;
-    int beginning;
-    cout << "Enter input file name: "; //asks input
+    int start;
+    cout << "Enter filename: "; 
     cin >> fileName;
     cout << "Enter a start vertex: ";
-    cin >> beginning;
+    cin >> start;
     ifstream infile(fileName.c_str());
   
-    int N;
-    infile >> N; 
+    int num;
+    infile >> num; 
 
-    int adjacency[N][N];
-    for(int i = 0; i < N; i++)
+    int adjacency[num][num];
+    for(int i = 0; i < num; i++)
     {
-        for(int j = 0; j < N; j++)
+        for(int j = 0; j < num; j++)
             infile >> adjacency[i][j];
     }
 
     infile.close();
     
 
-    int queue[N];
+    int queue[num];
     int queue_length = 0;
-    queue[0] = beginning;
+    queue[0] = start;
     queue_length++;
     int vertex;
     for(int i = 0; i < queue_length; i++)
     {
         vertex = queue[i];
-        for(int j = 0; j < N; j++)
+        for(int j = 0; j < num; j++)
         {
             if(adjacency[vertex][j] != 0)
-                insertInQueue(queue, queue_length, j);
+                check(queue, queue_length, j);
         }
     }
     cout << "\nBFS Order: ";
