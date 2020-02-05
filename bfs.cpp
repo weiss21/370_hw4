@@ -19,7 +19,7 @@ int main()
 
 {
     string fileName;
-    int start;
+    int start, vertex;
     cout << "Enter filename: "; 
     cin >> fileName;
     cout << "Enter a start vertex: ";
@@ -40,22 +40,21 @@ int main()
     
 
     int stack[num];
-    int queue_length = 0;
+    int k = 0;
     stack[0] = start;
-    queue_length++;
-    int vertex;
-    for(int i = 0; i < queue_length; i++)
+    k++;
+    for(int i = 0; i < k; i++)
     {
         vertex = stack[i];
         for(int j = 0; j < num; j++)
         {
             if(dynamarray[vertex][j] != 0)
-                check(stack, queue_length, j);
+                check(stack, k, j);
         }
     }
     cout << "\nBFS Order: ";
     cout << stack[0] ;
-    for( int i = 1; i < queue_length; i++)
+    for( int i = 1; i < k; i++)
         cout << " ---> " << stack[i] ;
     cout << endl;
 }
